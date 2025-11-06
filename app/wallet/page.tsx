@@ -149,8 +149,8 @@ export default function WalletPage() {
                   <Link href="/liked-profiles" className={styles.menuItem}>Liked Profiles</Link>
                   <Link href="/service-info" className={styles.menuItem}>Service Info</Link>
                   <Link href="/about" className={styles.menuItem}>About</Link>
-                  <Link href="/agencies-program" className={styles.menuItem}>Rovor's Agencies Program</Link>
-                  <Link href="/resellers-program" className={styles.menuItem}>Rovor's Resellers Program</Link>
+                  <Link href="/agencies-program" className={styles.menuItem}>Rovor&apos;s Agencies Program</Link>
+                  <Link href="/resellers-program" className={styles.menuItem}>Rovor&apos;s Resellers Program</Link>
                   <Link href="/legal" className={styles.menuItem}>Legal Information</Link>
                   <Link href="/support" className={styles.menuItem}>Customer Support</Link>
                   <Link href="/app" className={styles.menuItem}>Get Rovor App</Link>
@@ -265,7 +265,7 @@ export default function WalletPage() {
                 <div className={styles.sectionIcon}>🧮</div>
                 <div>
                   <h2 className={styles.sectionTitle}>Coin Calculator</h2>
-                  <p className={styles.sectionDescription}>Calculate how many Rcoins you'll receive</p>
+                  <p className={styles.sectionDescription}>Calculate how many Rcoins you&apos;ll receive</p>
                 </div>
               </div>
               <div className={styles.calculatorBox}>
@@ -309,7 +309,7 @@ export default function WalletPage() {
                 <div className={styles.calculatorOutputCard}>
                   <div className={styles.outputHeader}>
                     <span className={styles.outputIcon}>🪙</span>
-                    <label className={styles.inputLabel}>You'll Receive</label>
+                    <label className={styles.inputLabel}>You&apos;ll Receive</label>
                   </div>
                   <div className={styles.coinsDisplay}>
                     <span className={styles.coinsAmount}>{calculatedCoins.toLocaleString()}</span>

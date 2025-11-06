@@ -121,8 +121,8 @@ export default function Recommended() {
                   <Link href="/liked-profiles" className={styles.menuItem}>Liked Profiles</Link>
                   <Link href="/service-info" className={styles.menuItem}>Service Info</Link>
                   <Link href="/about" className={styles.menuItem}>About</Link>
-                  <Link href="/agencies-program" className={styles.menuItem}>Rovor's Agencies Program</Link>
-                  <Link href="/resellers-program" className={styles.menuItem}>Rovor's Resellers Program</Link>
+                  <Link href="/agencies-program" className={styles.menuItem}>Rovor&apos;s Agencies Program</Link>
+                  <Link href="/resellers-program" className={styles.menuItem}>Rovor&apos;s Resellers Program</Link>
                   <Link href="/legal" className={styles.menuItem}>Legal Information</Link>
                   <Link href="/support" className={styles.menuItem}>Customer Support</Link>
                   <Link href="/app" className={styles.menuItem}>Get Rovor App</Link>

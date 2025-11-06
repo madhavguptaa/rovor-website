@@ -11,7 +11,7 @@ const followedUsers = [
   { id: 2, name: 'Preeti', image: '/sample/Ellipse 28.svg', lastMessage: 'Thanks for the message!', time: '1:15 PM', unread: 0 },
   { id: 3, name: 'Joy', image: '/sample/Ellipse 30.svg', lastMessage: 'See you soon!', time: '12:45 PM', unread: 1 },
   { id: 4, name: 'Sasha', image: '/sample/Ellipse 39.svg', lastMessage: 'That sounds great!', time: '11:20 AM', unread: 0 },
-  { id: 5, name: 'Ayesha', image: '/sample/Ellipse 42.svg', lastMessage: 'Let me know when you\'re free', time: 'Yesterday', unread: 3 },
+  { id: 5, name: 'Ayesha', image: '/sample/Ellipse 42.svg', lastMessage: 'Let me know when you&apos;re free', time: 'Yesterday', unread: 3 },
   { id: 6, name: 'Anya', image: '/sample/Ellipse 46.svg', lastMessage: 'Thanks!', time: 'Yesterday', unread: 0 },
   { id: 7, name: 'Sushi', image: '/sample/Ellipse 50.svg', lastMessage: 'How was your day?', time: '2 days ago', unread: 0 },
   { id: 8, name: 'Pisha', image: '/sample/Ellipse 26.svg', lastMessage: 'Looking forward to it!', time: '2 days ago', unread: 0 },
@@ -21,8 +21,8 @@ const followedUsers = [
 const userMessages: { [key: number]: Array<{ id: number, text: string, time: string, sender: 'me' | 'them' }> } = {
   1: [
     { id: 1, text: 'Hey! How are you?', time: '2:25 PM', sender: 'them' },
-    { id: 2, text: 'I\'m doing great, thanks! How about you?', time: '2:27 PM', sender: 'me' },
-    { id: 3, text: 'I\'m good too! Just working on some projects.', time: '2:30 PM', sender: 'them' },
+    { id: 2, text: 'I&apos;m doing great, thanks! How about you?', time: '2:27 PM', sender: 'me' },
+    { id: 3, text: 'I&apos;m good too! Just working on some projects.', time: '2:30 PM', sender: 'them' },
   ],
   2: [
     { id: 1, text: 'Hi there!', time: '1:10 PM', sender: 'me' },
@@ -35,7 +35,7 @@ const userMessages: { [key: number]: Array<{ id: number, text: string, time: str
     { id: 1, text: 'That sounds great!', time: '11:20 AM', sender: 'them' },
   ],
   5: [
-    { id: 1, text: 'Let me know when you\'re free', time: '11:00 AM', sender: 'them' },
+    { id: 1, text: 'Let me know when you&apos;re free', time: '11:00 AM', sender: 'them' },
   ],
   6: [
     { id: 1, text: 'Thanks!', time: '10:30 AM', sender: 'them' },
@@ -174,8 +174,8 @@ export default function ChatPage() {
                   <Link href="/liked-profiles" className={styles.menuItem}>Liked Profiles</Link>
                   <Link href="/service-info" className={styles.menuItem}>Service Info</Link>
                   <Link href="/about" className={styles.menuItem}>About</Link>
-                  <Link href="/agencies-program" className={styles.menuItem}>Rovor's Agencies Program</Link>
-                  <Link href="/resellers-program" className={styles.menuItem}>Rovor's Resellers Program</Link>
+                  <Link href="/agencies-program" className={styles.menuItem}>Rovor&apos;s Agencies Program</Link>
+                  <Link href="/resellers-program" className={styles.menuItem}>Rovor&apos;s Resellers Program</Link>
                   <Link href="/legal" className={styles.menuItem}>Legal Information</Link>
                   <Link href="/support" className={styles.menuItem}>Customer Support</Link>
                   <Link href="/app" className={styles.menuItem}>Get Rovor App</Link>

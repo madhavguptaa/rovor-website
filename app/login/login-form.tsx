@@ -109,7 +109,7 @@ export default function LoginForm() {
       </div>
 
       <p className={styles.signupText}>
-        Don't have an account? <Link href="/signup" className={styles.signupLink}>Sign up</Link>
+        Don&apos;t have an account? <Link href="/signup" className={styles.signupLink}>Sign up</Link>
       </p>
 
       <div className={styles.sampleCredentials}>

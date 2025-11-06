@@ -70,7 +70,7 @@ export default function Home() {
               <span className={styles.iconBubble}>
                 <Image src="/small-icon-hero1.svg" alt="Icon" width={24} height={24} />
               </span>
-              Learn, laugh, coach, connect — ROVOR's got your people
+              Learn, laugh, coach, connect — ROVOR&apos;s got your people
               <span className={styles.iconBubble}>
                 <Image src="/small-icon-hero2.svg" alt="Icon" width={24} height={24} />
               </span>
