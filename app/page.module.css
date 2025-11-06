@@ -1,0 +1,474 @@
+.container {
+  min-height: 100vh;
+  background-color: white;
+}
+
+/* Header Styles */
+.header {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 6rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.headerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.headerLeft {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+
+.navLink:hover {
+  opacity: 0.7;
+}
+
+.navIcon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2;
+}
+
+.menuButton {
+  grid-column: 3;
+  justify-self: end;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+}
+
+.menuIcon {
+  width: 24px;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3s;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to bottom, #E63946 0%, #FF4C61 100%);
+  border-radius: 47px 47px 0 0;
+  margin: 2rem 6rem 0 6rem;
+  min-height: calc(100vh - 120px);
+  position: relative;
+  overflow: visible;
+  padding: 3rem 4rem;
+}
+
+.heroContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+}
+
+/* Large rovor text overlay */
+.rovorOverlay {
+  position: absolute;
+  top: -12rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: clamp(180px, 25vw, 350px);
+  font-weight: 900;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.98) 15%, rgba(255, 255, 255, 0.9) 40%, rgba(250, 250, 250, 0.7) 70%, rgba(240, 240, 240, 0.5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  z-index: 1;
+  white-space: nowrap;
+  text-transform: lowercase;
+  pointer-events: none;
+  transform: none;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  filter: blur(0.5px);
+}
+
+/* Left text block */
+.leftTextBlock {
+  position: absolute;
+  top: 10rem;
+  left: 2rem;
+  z-index: 10;
+  max-width: 300px;
+  transform: rotate(-2.5deg) translateY(5px);
+}
+
+.leftTextBlock .iconBubble {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 1rem 0.5rem 0;
+}
+
+.leftText {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.iconBubble {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  background-color: transparent;
+  padding: 0;
+}
+
+.iconBubble img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Right text block */
+.rightTextBlock {
+  position: absolute;
+  top: 9rem;
+  right: 1.5rem;
+  z-index: 10;
+  max-width: 350px;
+  text-align: right;
+  transform: rotate(2.5deg) translateY(-5px);
+}
+
+.rightTextBlock .iconBubble:first-of-type {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.rightTextBlock .iconBubble:last-of-type {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0.5rem 0 0 1rem;
+}
+
+.rightText {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  font-style: italic;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.rightSubText {
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.0;
+  margin-top: 0.5rem;
+}
+
+
+/* Center headline */
+.centerHeadline {
+  position: absolute;
+  top: 28rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  max-width: 100%;
+}
+
+.headlineText {
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.highlightWord {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  transform: rotate(-2deg);
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Image */
+.heroImage {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: 600px;
+  height: auto;
+  pointer-events: none;
+}
+
+.heroImageSvg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* CTA Section */
+.ctaSection {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.emailButton {
+  background-color: white;
+  border: 2px solid white;
+  color: #E53935;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.emailButton:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.arrowIcon {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(to bottom, #E63946 0%, #FF4C61 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: white;
+  border: 2px solid #E53935;
+  flex-shrink: 0;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slantLine {
+  width: 40px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg);
+}
+
+.orText {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.googleIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 6px;
+}
+
+.googleIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.googleIcon:hover {
+  transform: scale(1.1);
+}
+
+.phoneIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.phoneIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0);
+}
+
+.phoneIcon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 2rem;
+  }
+  
+  .rovorOverlay {
+    font-size: clamp(80px, 15vw, 150px);
+  }
+  
+  .leftTextBlock,
+  .rightTextBlock {
+    max-width: 250px;
+  }
+  
+  .rightText {
+    font-size: 1.5rem;
+  }
+  
+  .heroImage {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    padding: 0 1rem;
+  }
+  
+  .headerLeft {
+    gap: 1rem;
+  }
+  
+  .navLink span:not(.navIcon) {
+    display: none;
+  }
+  
+  .hero {
+    margin: 1rem 0.5rem 0 0.5rem;
+    padding: 2rem 1.5rem;
+    border-radius: 35px 35px 0 0;
+  }
+  
+  .rovorOverlay {
+    font-size: 60px;
+    top: 1rem;
+  }
+  
+  .leftTextBlock {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: 4rem;
+    max-width: 100%;
+  }
+  
+  .rightTextBlock {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 2rem;
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  .heroImage {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .ctaSection {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+}
+
