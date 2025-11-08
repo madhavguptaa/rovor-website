@@ -129,49 +129,43 @@
 }
 
 .walletBalance {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
-  background-color: #fef5f5;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  background: rgba(230, 57, 70, 0.1);
+  color: #e63946;
+  border-radius: 16px;
   text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .walletBalance:hover {
-  background-color: #fee;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(230, 57, 70, 0.18);
 }
 
 .walletIcon {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #E63946;
-  flex-shrink: 0;
 }
 
 .balanceInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.15rem;
+  line-height: 1;
 }
 
 .balanceLabel {
-  font-size: 0.75rem;
-  color: #999;
-  font-family: var(--font-poppins), sans-serif;
-  line-height: 1;
+  font-size: 0.7rem;
+  color: #9aa1b5;
 }
 
 .balanceAmount {
   font-size: 0.95rem;
-  font-weight: 700;
-  color: #E63946;
-  font-family: var(--font-poppins), sans-serif;
-  line-height: 1;
 }
 
 .userProfile {
@@ -464,12 +458,12 @@
   flex-shrink: 0;
   z-index: 2;
   position: relative;
-  margin-top: -20px;
+  margin-top: -40px;
 }
 
 .profileAvatar {
-  width: 70px;
-  height: 70px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   object-fit: cover;
@@ -513,7 +507,7 @@
 
 .addButton {
   position: absolute;
-  top: 0.5rem;
+  top: 0.65rem;
   right: 1.5rem;
   width: 36px;
   height: 36px;
@@ -528,7 +522,7 @@
   box-shadow: 0 2px 6px rgba(230, 57, 70, 0.3);
   flex-shrink: 0;
   z-index: 10;
-  position: relative;
+  position: absolute;
   overflow: hidden;
 }
 
@@ -553,9 +547,32 @@
 .plusIcon,
 .tickIcon {
   position: absolute;
-  top: 7px;
-  left: 10px;
+  inset: 0;
+  margin: auto;
+  width: 16px;
+  height: 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.plusIcon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.addButton.following .plusIcon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
+}
+
+.tickIcon {
+  opacity: 0;
+  transform: scale(0) rotate(-90deg);
+}
+
+.addButton.following .tickIcon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  animation: tickAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .plusIcon {

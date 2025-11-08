@@ -6,6 +6,18 @@ import Link from 'next/link'
 
 import styles from './page.module.css'
 
+const menuLinks = [
+  { href: '/profile/user', label: 'Profile' },
+  { href: '/liked-profiles', label: 'Liked Profiles' },
+  { href: '/service-info', label: 'Service Info' },
+  { href: '/about', label: 'About' },
+  { href: '/agencies-program', label: "Rovor's Agencies Program" },
+  { href: '/resellers-program', label: "Rovor's Resellers Program" },
+  { href: '/legal', label: 'Legal Information' },
+  { href: '/support', label: 'Customer Support' },
+  { href: '/app', label: 'Get Rovor App' },
+]
+
 type ChatThread = {
   id: number
   name: string
@@ -47,12 +59,30 @@ const seedMessages: Record<number, ChatMessage[]> = {
 export default function ChatPage() {
   const [activeThreadId, setActiveThreadId] = useState<number | null>(null)
   const [messages, setMessages] = useState<ChatMessage[]>([])
+  const [showProfileMenu, setShowProfileMenu] = useState(false)
   const [newMessage, setNewMessage] = useState('')
+  const profileMenuRef = useRef<HTMLDivElement | null>(null)
   const messagesEndRef = useRef<HTMLDivElement | null>(null)
 
   const activeThread = activeThreadId
     ? chatThreads.find((thread) => thread.id === activeThreadId) ?? null
     : null
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
+        setShowProfileMenu(false)
+      }
+    }
+
+    if (showProfileMenu) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [showProfileMenu])
 
   useEffect(() => {
     if (activeThreadId) {
@@ -93,6 +123,11 @@ export default function ChatPage() {
       <div className={styles.topHeader}>
         <div className={styles.headerContent}>
           <div className={styles.headerLeft}>
+            <Link href="/recommended" className={styles.backButton} aria-label="Back to Recommended">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M12.5 15L7.5 10L12.5 5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
             <Link href="/" className={styles.logoLink}>
               <Image src="/rovor-logo.svg" alt="Rovor logo" width={130} height={38} priority />
             </Link>
@@ -112,16 +147,6 @@ export default function ChatPage() {
             </nav>
           </div>
 
-          <div className={styles.headerCenter}>
-            <div className={styles.searchBar}>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className={styles.searchIcon}>
-                <path d="M7.875 14.25C11.0478 14.25 13.625 11.6728 13.625 8.5C13.625 5.32721 11.0478 2.75 7.875 2.75C4.70221 2.75 2.125 5.32721 2.125 8.5C2.125 11.6728 4.70221 14.25 7.875 14.25Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M15.875 15.875L12.6875 12.6875" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <input className={styles.searchInput} type="text" placeholder="Search" aria-label="Search" />
-            </div>
-          </div>
-
           <div className={styles.headerRight}>
             <Link href="/wallet" className={styles.walletBalance}>
               <span className={styles.walletIcon}>
@@ -135,9 +160,26 @@ export default function ChatPage() {
                 <span className={styles.balanceAmount}>1,250 Rcoins</span>
               </span>
             </Link>
-            <Link href="/profile/user" className={styles.profileButton}>
-              <Image src="/sample/Ellipse 26.svg" alt="Profile" width={44} height={44} />
-            </Link>
+            <div className={styles.profileWrapper} ref={profileMenuRef}>
+              <button type="button" className={styles.profileButton} onClick={() => setShowProfileMenu((prev) => !prev)}>
+                <Image src="/sample/Ellipse 26.svg" alt="Profile" width={44} height={44} />
+              </button>
+              {showProfileMenu && (
+                <div className={styles.profileMenu}>
+                  {menuLinks.map((link) => (
+                    <Link key={link.href} href={link.href} className={styles.menuItem}>
+                      {link.label}
+                    </Link>
+                  ))}
+                  <div className={styles.menuDivider} />
+                  <p className={styles.menuMessage}>Stay connected with your friends anywhere and anytime!</p>
+                  <div className={styles.menuDivider} />
+                  <Link href="/login" className={styles.menuItemLogout}>
+                    Logout
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

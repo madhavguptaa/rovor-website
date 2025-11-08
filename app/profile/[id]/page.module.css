@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #f7f8fb;
 }
 
 /* Header Styles */
@@ -114,6 +114,44 @@
   gap: 1.5rem;
 }
 
+.walletBalance {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  background: rgba(230, 57, 70, 0.1);
+  color: #e63946;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.walletBalance:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(230, 57, 70, 0.18);
+}
+
+.walletIcon svg {
+  display: block;
+}
+
+.balanceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  line-height: 1;
+}
+
+.balanceLabel {
+  font-size: 0.7rem;
+  color: #9aa1b5;
+}
+
+.balanceAmount {
+  font-size: 0.95rem;
+}
+
 .countryDropdown {
   display: flex;
   align-items: center;
@@ -142,10 +180,7 @@
 }
 
 .walletIcon {
-  position: relative;
-  cursor: pointer;
-  color: #E63946;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
