@@ -485,7 +485,8 @@
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  padding-top: 0.35rem;
 }
 
 .name {
@@ -551,8 +552,10 @@
 
 .plusIcon,
 .tickIcon {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
+  top: 7px;
+  left: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .plusIcon {

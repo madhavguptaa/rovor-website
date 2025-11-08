@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'rovor - Connect Worldwide',
+  title: 'Rovor - Connect Worldwide',
   description: 'Go live, connect worldwide, and keep it real — always on your terms.',
   icons: {
     icon: '/rovor-logo.svg',

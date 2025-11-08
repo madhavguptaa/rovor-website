@@ -4,125 +4,120 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
+
 import styles from './page.module.css'
+
+const SAMPLE_EMAIL = 'rovor-sample@example.com'
+const SAMPLE_PASSWORD = 'password'
 
 export default function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
 
-    // Sample user credentials
-    const sampleEmail = 'rovor-sample'
-    const samplePassword = 'password'
+    const normalizedEmail = email.trim().toLowerCase()
+    const normalizedPassword = password.trim()
 
-    // Check credentials
-    if (email === sampleEmail && password === samplePassword) {
-      // Store authentication (simple localStorage for now)
+    const isSampleLogin =
+      normalizedEmail === SAMPLE_EMAIL && normalizedPassword === SAMPLE_PASSWORD
+
+    if (isSampleLogin) {
       localStorage.setItem('isAuthenticated', 'true')
-      localStorage.setItem('userEmail', email)
-      
-      // Redirect to recommended page
+      localStorage.setItem('userEmail', SAMPLE_EMAIL)
       router.push('/recommended')
     } else {
       setError('Invalid email or password. Please try again.')
     }
   }
 
-  const fillSampleCredentials = () => {
-    setEmail('rovor-sample')
-    setPassword('password')
-  }
-
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
-      {error && (
-        <div className={styles.errorMessage}>
-          {error}
-        </div>
-      )}
+      {error && <div className={styles.errorMessage}>{error}</div>}
 
-      <div className={styles.formGroup}>
-        <label htmlFor="email" className={styles.label}>Email</label>
-        <input 
-          type="text" 
-          id="email" 
-          name="email" 
-          placeholder="Enter your email" 
-          className={styles.input}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+      <div className={styles.inputGroup}>
+        <label htmlFor="email" className={styles.inputLabel}>Email Address</label>
+        <div className={styles.inputWrapper}>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your Email Address..."
+            className={styles.textInput}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="password" className={styles.label}>Password</label>
-        <input 
-          type="password" 
-          id="password" 
-          name="password" 
-          placeholder="Enter your password" 
-          className={styles.input}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      <div className={styles.inputGroup}>
+        <label htmlFor="password" className={styles.inputLabel}>Password</label>
+        <div className={styles.inputWrapper}>
+          <input
+            id="password"
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Password"
+            className={styles.textInput}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="button"
+            className={styles.togglePassword}
+            onClick={() => setShowPassword((prev) => !prev)}
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
+          >
+            {showPassword ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-5.05 0-9.31-3.27-10.87-7.82a1 1 0 0 1 0-.72 12.21 12.21 0 0 1 3.2-4.92" />
+                <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c5.05 0 9.31 3.27 10.87 7.82a1 1 0 0 1 0 .72 12.8 12.8 0 0 1-2.85 4.21" />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       <div className={styles.formOptions}>
-        <label className={styles.checkboxLabel}>
+        <label className={styles.rememberLabel}>
           <input type="checkbox" className={styles.checkbox} />
-          <span>Remember me</span>
+          Remember me
         </label>
-        <a href="#" className={styles.forgotLink}>Forgot password?</a>
+        <a href="#" className={styles.forgotLink}>Forgot Password?</a>
       </div>
 
-      <button type="submit" className={styles.loginButton}>
-        <span>Sign In</span>
-        <span className={styles.arrowIcon}>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M1 11L11 1M11 1H1M11 1V11" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-          </svg>
-        </span>
-      </button>
+      <button type="submit" className={styles.submitButton}>Login</button>
 
       <div className={styles.divider}>
-        <div className={styles.dividerLine}></div>
+        <span className={styles.dividerLine} />
         <span className={styles.dividerText}>or</span>
-        <div className={styles.dividerLine}></div>
+        <span className={styles.dividerLine} />
       </div>
 
-      <div className={styles.socialLogin}>
+      <div className={styles.socialRow}>
         <button type="button" className={styles.socialButton}>
-          <Image src="/google-login.svg" alt="Google login" width={24} height={24} />
-          <span>Continue with Google</span>
+          <Image src="/google-login.svg" alt="Google" width={24} height={24} />
         </button>
         <button type="button" className={styles.socialButton}>
-          <Image src="/phone-login.svg" alt="Phone login" width={24} height={24} />
-          <span>Continue with Phone</span>
+          <Image src="/phone-login.svg" alt="Phone" width={24} height={24} />
         </button>
       </div>
 
       <p className={styles.signupText}>
-        Don&apos;t have an account? <Link href="/signup" className={styles.signupLink}>Sign up</Link>
+        Don&apos;t have an account?{' '}
+        <Link href="/signup" className={styles.signupLink}>Sign up here</Link>
       </p>
-
-      <div className={styles.sampleCredentials}>
-        <p className={styles.sampleText}>Sample credentials for testing:</p>
-        <button 
-          type="button" 
-          onClick={fillSampleCredentials}
-          className={styles.sampleButton}
-        >
-          Use: rovor-sample / password
-        </button>
-      </div>
     </form>
   )
 }
-

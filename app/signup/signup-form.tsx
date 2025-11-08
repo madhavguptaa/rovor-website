@@ -29,7 +29,7 @@ export default function SignupForm() {
     }
 
     // Sample user credentials (for testing)
-    const sampleEmail = 'rovor-sample'
+    const sampleEmail = 'Rovor-sample'
     const samplePassword = 'password'
 
     // If using sample credentials, allow signup
@@ -51,7 +51,7 @@ export default function SignupForm() {
   }
 
   const fillSampleCredentials = () => {
-    setEmail('rovor-sample')
+    setEmail('Rovor-sample')
     setPassword('password')
     setConfirmPassword('password')
   }
@@ -152,7 +152,7 @@ export default function SignupForm() {
           onClick={fillSampleCredentials}
           className={styles.sampleButton}
         >
-          Use: rovor-sample / password
+          Use: Rovor-sample / password
         </button>
       </div>
     </form>

@@ -44,37 +44,14 @@ export default function Home() {
       {/* Main Hero Section */}
       <main className={styles.hero}>
         <div className={styles.heroContent}>
-          {/* Large rovor text overlay */}
-          <h1 className={styles.rovorOverlay}>rovor</h1>
+          {/* Large Rovor text overlay */}
+          <h1 className={styles.rovorOverlay}>Rovor</h1>
           
           {/* Center headline above girl image */}
           <div className={styles.centerHeadline}>
             <h2 className={styles.headlineText}>
               The Stage is <span className={styles.highlightWord}>Global</span>. The Mic is <span className={styles.highlightWord}>Yours</span>.
             </h2>
-          </div>
-
-          {/* Left text block */}
-          <div className={styles.leftTextBlock}>
-            <p className={styles.leftText}>
-              <span className={styles.iconBubble}>
-                <Image src="/small-icon-hero.svg" alt="Icon" width={24} height={24} />
-              </span>
-              Go live, connect worldwide, and keep it real — always on your terms.
-            </p>
-          </div>
-          
-          {/* Right text block */}
-          <div className={styles.rightTextBlock}>
-            <p className={styles.rightSubText}>
-              <span className={styles.iconBubble}>
-                <Image src="/small-icon-hero1.svg" alt="Icon" width={24} height={24} />
-              </span>
-              Learn, laugh, coach, connect — ROVOR&apos;s got your people
-              <span className={styles.iconBubble}>
-                <Image src="/small-icon-hero2.svg" alt="Icon" width={24} height={24} />
-              </span>
-            </p>
           </div>
           
           {/* Central image - Woman taking selfie */}
