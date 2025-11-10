@@ -1,0 +1,134 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f7f8fc 0%, #ffffff 60%);
+  display: flex;
+  flex-direction: column;
+}
+
+.headerOverride {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pageTitle {
+  margin: 0;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #111217;
+}
+
+.pageIntro {
+  margin: 0;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.05rem;
+  color: #4b5160;
+  line-height: 1.7;
+}
+
+.sectionsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.section {
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.12);
+  padding: 2rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ff577f;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.faqCard {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 87, 127, 0.14);
+  background: #ffffff;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faqOpen {
+  box-shadow: 0 24px 48px rgba(255, 87, 127, 0.12);
+  border-color: rgba(255, 87, 127, 0.35);
+}
+
+.faqTrigger {
+  width: 100%;
+  padding: 1rem 1.4rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111217;
+  cursor: pointer;
+}
+
+.faqTrigger:hover {
+  background: rgba(255, 87, 127, 0.06);
+}
+
+.faqAnswer {
+  padding: 0 1.4rem 1.2rem;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.95rem;
+  color: #4b5160;
+  line-height: 1.65;
+}
+
+.faqAnswer p {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .main {
+    padding: 2.2rem 1.1rem 3.5rem;
+  }
+
+  .section {
+    padding: 1.6rem 1.8rem;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+}

@@ -7,34 +7,20 @@
   gap: 2.5rem;
 }
 
-.topHeader {
-  width: 100%;
-}
-
-.headerContent {
+.pageHeader {
   max-width: 1160px;
   margin: 0 auto;
-  padding: 1.2rem 1.75rem;
-  background: #ffffff;
-  border-radius: 28px;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.headerLeft {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .backButton {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.65rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 16px;
   border: 1px solid rgba(17, 18, 23, 0.12);
   background: #f6f7fb;
@@ -54,96 +40,6 @@
 
 .backButton svg {
   stroke: currentColor;
-}
-
-.logoLink {
-  display: inline-flex;
-  align-items: center;
-}
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.navLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: #6f7280;
-  font-weight: 500;
-  font-size: 0.95rem;
-  text-decoration: none;
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  transition: color 0.2s ease, background 0.2s ease;
-}
-
-.navLink:hover,
-.navLinkActive {
-  color: #111217;
-  background: rgba(17, 18, 23, 0.06);
-}
-
-.navIcon {
-  display: inline-flex;
-  align-items: center;
-}
-
-.headerRight {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.walletBalance {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.55rem 1rem;
-  background: rgba(230, 57, 70, 0.1);
-  color: #e63946;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.walletBalance:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(230, 57, 70, 0.18);
-}
-
-.walletIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.balanceInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  line-height: 1;
-}
-
-.balanceLabel {
-  font-size: 0.7rem;
-  color: #9aa1b5;
-}
-
-.balanceAmount {
-  font-size: 0.95rem;
-}
-
-.profileButton {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid rgba(230, 57, 70, 0.12);
 }
 
 .layout {

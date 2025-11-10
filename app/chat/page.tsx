@@ -4,19 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import styles from './page.module.css'
+import Header from '@/components/shared/Header'
 
-const menuLinks = [
-  { href: '/profile/user', label: 'Profile' },
-  { href: '/liked-profiles', label: 'Liked Profiles' },
-  { href: '/service-info', label: 'Service Info' },
-  { href: '/about', label: 'About' },
-  { href: '/agencies-program', label: "Rovor's Agencies Program" },
-  { href: '/resellers-program', label: "Rovor's Resellers Program" },
-  { href: '/legal', label: 'Legal Information' },
-  { href: '/support', label: 'Customer Support' },
-  { href: '/app', label: 'Get Rovor App' },
-]
+import styles from './page.module.css'
 
 type ChatThread = {
   id: number
@@ -59,30 +49,12 @@ const seedMessages: Record<number, ChatMessage[]> = {
 export default function ChatPage() {
   const [activeThreadId, setActiveThreadId] = useState<number | null>(null)
   const [messages, setMessages] = useState<ChatMessage[]>([])
-  const [showProfileMenu, setShowProfileMenu] = useState(false)
   const [newMessage, setNewMessage] = useState('')
-  const profileMenuRef = useRef<HTMLDivElement | null>(null)
   const messagesEndRef = useRef<HTMLDivElement | null>(null)
 
   const activeThread = activeThreadId
     ? chatThreads.find((thread) => thread.id === activeThreadId) ?? null
     : null
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
-        setShowProfileMenu(false)
-      }
-    }
-
-    if (showProfileMenu) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [showProfileMenu])
 
   useEffect(() => {
     if (activeThreadId) {
@@ -120,68 +92,14 @@ export default function ChatPage() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.topHeader}>
-        <div className={styles.headerContent}>
-          <div className={styles.headerLeft}>
-            <Link href="/recommended" className={styles.backButton} aria-label="Back to Recommended">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M12.5 15L7.5 10L12.5 5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-            <Link href="/" className={styles.logoLink}>
-              <Image src="/rovor-logo.svg" alt="Rovor logo" width={130} height={38} priority />
-            </Link>
-            <nav className={styles.navLinks}>
-              <Link href="/" className={styles.navLink}>
-                <Image src="/live.svg" alt="Live" width={18} height={18} className={styles.navIcon} />
-                Live
-              </Link>
-              <Link href="/" className={styles.navLink}>
-                <Image src="/call.svg" alt="Call" width={18} height={18} className={styles.navIcon} />
-                Call
-              </Link>
-              <Link href="/chat" className={`${styles.navLink} ${styles.navLinkActive}`}>
-                <Image src="/Group 1.svg" alt="Chat" width={18} height={18} className={styles.navIcon} />
-                Chat
-              </Link>
-            </nav>
-          </div>
-
-          <div className={styles.headerRight}>
-            <Link href="/wallet" className={styles.walletBalance}>
-              <span className={styles.walletIcon}>
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <rect x="1.5" y="3.25" width="15" height="11.5" rx="2" stroke="#E63946" strokeWidth="1.5" />
-                  <path d="M1.5 7H17.5" stroke="#E63946" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </span>
-              <span className={styles.balanceInfo}>
-                <span className={styles.balanceLabel}>Balance</span>
-                <span className={styles.balanceAmount}>1,250 Rcoins</span>
-              </span>
-            </Link>
-            <div className={styles.profileWrapper} ref={profileMenuRef}>
-              <button type="button" className={styles.profileButton} onClick={() => setShowProfileMenu((prev) => !prev)}>
-                <Image src="/sample/Ellipse 26.svg" alt="Profile" width={44} height={44} />
-              </button>
-              {showProfileMenu && (
-                <div className={styles.profileMenu}>
-                  {menuLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className={styles.menuItem}>
-                      {link.label}
-                    </Link>
-                  ))}
-                  <div className={styles.menuDivider} />
-                  <p className={styles.menuMessage}>Stay connected with your friends anywhere and anytime!</p>
-                  <div className={styles.menuDivider} />
-                  <Link href="/login" className={styles.menuItemLogout}>
-                    Logout
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+      <Header activeNav="chat" />
+      <div className={styles.pageHeader}>
+        <Link href="/recommended" className={styles.backButton}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span>Back to Recommended</span>
+        </Link>
       </div>
 
       <section className={styles.layout}>

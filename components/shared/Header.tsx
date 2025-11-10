@@ -19,8 +19,8 @@ const navItems: Array<{
   icon: string
   href: string
 }> = [
-  { key: 'live', label: 'Live', icon: '/live.svg', href: '#' },
-  { key: 'call', label: 'Call', icon: '/call.svg', href: '#' },
+  { key: 'live', label: 'Live', icon: '/live.svg', href: '/live' },
+  { key: 'call', label: 'Call', icon: '/call.svg', href: '/call' },
   { key: 'chat', label: 'Chat', icon: '/Group 1.svg', href: '/chat' },
 ]
 
@@ -30,7 +30,7 @@ const serviceInfoLinks = [
   { href: '/about', label: 'About' },
   { href: '/agencies-program', label: "Rovor's Agencies Program" },
   { href: '/resellers-program', label: "Rovor's Resellers Program" },
-  { href: '/support', label: 'Help Center' },
+  { href: '/help', label: 'Help Center' },
   { href: '/legal', label: 'Legal Information' },
 ]
 
@@ -89,6 +89,16 @@ export default function Header({ activeNav, className }: HeaderProps) {
         </nav>
 
         <div className={styles.headerRight}>
+          <Link href="/wallet" className={styles.walletDisplay} aria-label="Wallet balance">
+            <span className={styles.walletIcon} aria-hidden="true" role="presentation">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="7" width="18" height="10" rx="2.5" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M18 9.5H21.5C22.328 9.5 23 10.172 23 11V13C23 13.828 22.328 14.5 21.5 14.5H18V9.5Z" stroke="currentColor" strokeWidth="1.4" />
+                <circle cx="18.2" cy="12" r="0.85" fill="currentColor" />
+              </svg>
+            </span>
+            <span className={styles.walletText}>1,250 Rcoins</span>
+          </Link>
           <div className={styles.profileWrapper} ref={profileMenuRef}>
             <button
               type="button"
