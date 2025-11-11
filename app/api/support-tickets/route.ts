@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import clientPromise from '@/lib/mongodb'
+import getMongoClientPromise from '@/lib/mongodb'
 
 const REQUIRED_FIELDS = ['fullName', 'phoneNumber', 'email', 'countryCode', 'countryName', 'subject', 'category'] as const
 
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const client = await clientPromise
+    const client = await getMongoClientPromise()
     const dbName = process.env.MONGODB_DB || 'rovor'
     const db = client.db(dbName)
     const ticketsCollection = db.collection('supportTickets')
